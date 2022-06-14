@@ -32,8 +32,10 @@ class _RegisterPageState extends State<RegisterPage> {
         print('Confirm Password: $_confirmPassword');
 
         if (_password.endsWith(_confirmPassword)) {
+          
           print('Password match');
           Navigator.pushReplacementNamed(context, '/login');
+
         } else {
           Flushbar(
             title: 'Password not match',
