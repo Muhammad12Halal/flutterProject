@@ -1,16 +1,14 @@
 import 'package:flutter_project/domain/user.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserPreferences {
   Future<bool> saveUser(User user) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    prefs.setInt('userId', user.userId);
-    prefs.setString('username', user.username);
+    prefs.setInt('id', user.id);
+    prefs.setString('name', user.name);
     prefs.setString('email', user.email);
-    prefs.setString('phone', user.phone);
-    prefs.setString('type', user.type);
-    prefs.setString('token', user.token);
 
     // ignore: deprecated_member_use
     return prefs.commit();
@@ -19,22 +17,14 @@ class UserPreferences {
   Future<User> getUser() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    int userId = prefs.getInt('userId');
-    String username = prefs.getString('username');
+    int id = prefs.getInt('id');
+    String name = prefs.getString('name');
     String email = prefs.getString('email');
-    String phone = prefs.getString('phone');
-    String type = prefs.getString('type');
-    String token = prefs.getString('token');
-    String renewalToken = prefs.getString('renewalToken');
 
     return User(
-      userId: userId,
-      username: username,
+      id: id,
+      name: name,
       email: email,
-      phone: phone,
-      type: type,
-      token: token,
-      renewalToken: renewalToken,
     );
   }
 
@@ -42,12 +32,9 @@ class UserPreferences {
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    prefs.remove('userId');
+    prefs.remove('id');
     prefs.remove('name');
     prefs.remove('email');
-    prefs.remove('phone');
-    prefs.remove('type');
-    prefs.remove('token');
 
   }
 
