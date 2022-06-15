@@ -1,5 +1,4 @@
 // ignore_for_file: deprecated_member_use
-
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/domain/user.dart';

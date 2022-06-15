@@ -39,7 +39,7 @@ class AuthProvider extends ChangeNotifier {
      'email': email,
       'password': password,
     };
-
+    print(ApiBodyData);
     return await post(AppUrl.register,
             body: jsonEncode(ApiBodyData),
             headers: {'Content-Type': 'application/json'})

@@ -41,7 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
       if(form!.validate()){
 
         form.save();
-
+        
         auth.logInStatus= Status.Authenticating;
         auth.notify();
 
